@@ -17,6 +17,6 @@
   
 * Exec command in Docker
 
-  `docker exec -it ctf /bin/bash`
+  `docker exec -it <name> /bin/bash`
   
   `it` is used to provide and interactive shell like thing .
