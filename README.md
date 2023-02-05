@@ -9,7 +9,7 @@
    `<name>:<tag>` can something be like `ctf:ubuntu`
 * Run dockerimage 
 
-  `docker run --rm  --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -d --name <name> -i ,name>:<tag>`
+  `docker run --rm  --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -d --name <name> -i <name>:<tag>`
   
   `--cap-add=SYS_PTRACE --security-opt seccomp=unconfined` is used to disable secuirty mitigations such as kalsr, and ptrace . you can also remove this.
   
