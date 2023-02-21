@@ -1,22 +1,32 @@
-# chall-Dockerfile
 
-* Build Dockerimage
+# Chall-Dockerfile
 
-   `docker build -t <name>:<tag> .`
-   
-   `.` is used to make docker look at pwd for Dockerfile.
-   
-   `<name>:<tag>` can something be like `ctf:ubuntu`
-* Run dockerimage 
+Dockerfile for debugging and solving ctf pwn challenges. 
+## Run 
 
-  `docker run --rm  --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -d --name <name> -i <name>:<tag>`
-  
-  `--cap-add=SYS_PTRACE --security-opt seccomp=unconfined` is used to disable secuirty mitigations such as kalsr, and ptrace . you can also remove this.
-  
-  `-v $PWD:/pwd` this flag mount your current pwd to docker pwd which genrally includes the challenge binary , src ..
-  
-* Exec command in Docker
+Copy the Dockerfile and paste it in your chall directory  
 
-  `docker exec -it <name> /bin/bash`
-  
-  `it` is used to provide and interactive shell like thing .
+Build Dockerimage
+
+```bash
+docker build -t <name>:<tag> .
+```
+`.` is used to make docker look at pwd for Dockerfile  
+`<name>:<tag>` can something be like `ctf:ubuntu`  
+
+Run Dockerimage
+
+```bash
+docker run --rm  --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -d --name <name> -i <name>:<tag>  
+docker run --rm  -d --name <name> -i <name>:<tag>  
+```
+`--cap-add=SYS_PTRACE --security-opt seccomp=unconfined` is used to disable security mitigatoins such as kaslr, ptrace..  
+`-v $PWD:/pwd` ths flag will mount your host pwd to docker pwd which includes chall, src ...  
+
+Exec command in Docker
+
+```bash
+docker exec -it <name> /bin/bash
+```
+`-it` is used to provide a interactive shell like thing.
+
